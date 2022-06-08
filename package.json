@@ -1,0 +1,31 @@
+{
+  "name": "reciochatapp",
+  "version": "1.0.0",
+  "description": "Servidor de la aplicación RecioChat.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "recio",
+    "chat",
+    "flutter"
+  ],
+  "author": "Manuel Valdes",
+  "license": "MIT",
+  "dependencies": {
+    "@google-cloud/storage": "^6.0.1",
+    "bcryptjs": "^2.4.3",
+    "bluebird": "^3.7.2",
+    "cors": "^2.8.5",
+    "express": "^4.18.1",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "passport": "^0.6.0",
+    "passport-jwt": "^4.0.0",
+    "passport-local": "^1.0.0",
+    "pg-promise": "^10.11.1",
+    "socket.io": "^4.5.1"
+  }
+}
