@@ -11,7 +11,9 @@ User.getAll = (id) => {
 	phone,
 	image,
 	session_token,
-	notification_token
+	notification_token,
+	updated_at,
+	created_at
 FROM
 	users
 WHERE
@@ -29,7 +31,9 @@ User.findById = async (id, callback) => {
 	image,
 	phone,
 	password,
-	session_token
+	session_token,
+	updated_at,
+	created_at
 FROM
 	users
 WHERE
@@ -48,7 +52,9 @@ User.findByEmail = (email) => {
 	U.image,
 	U.phone,
 	U.password,
-	U.session_token
+	U.session_token,
+	U.updated_at,
+	U.created_at
 FROM
 	users AS U
 WHERE
@@ -128,13 +134,13 @@ WHERE
 }
 User.updateOnlineBySocket = (id_socket, online) => {
 	const sql = `
-    UPDATE
+	UPDATE
 	users
 SET
 	online = $2
 WHERE
-	id = $1;
-    `
+	id_socket = $1;
+	`
 	return db.none(sql, [id_socket, online])
 }
 User.updateIdSocket = (id_user, id_socket) => {

@@ -1,6 +1,6 @@
 /**********USERS**********/
 CREATE TABLE users(
-	id BIGSERIAL PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	email VARCHAR(255) NOT NULL UNIQUE,
 	name VARCHAR(255) NOT NULL,
 	lastname VARCHAR(255) NOT NULL,
@@ -110,13 +110,20 @@ WHERE
 UPDATE
 	users
 SET
+	online = $ 2
+WHERE
+	id_socket = $ 1;
+
+UPDATE
+	users
+SET
 	id_socket = $ 2
 WHERE
 	id = $ 1;
 
 /**********CHATS**********/
 CREATE TABLE chats(
-	id BIGSERIAL PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	id_user1 BIGINT NOT NULL,
 	id_user2 BIGINT NOT NULL,
 	timestamp BIGINT NOT NULL,
@@ -243,7 +250,7 @@ WHERE
 
 /**********MESSAGES**********/
 CREATE TABLE messages(
-	id BIGSERIAL PRIMARY KEY,
+	id BIGINT PRIMARY KEY,
 	message TEXT NOT NULL,
 	url VARCHAR(255) NULL,
 	is_image BOOLEAN DEFAULT FALSE,
@@ -251,7 +258,7 @@ CREATE TABLE messages(
 	id_sender BIGINT NOT NULL,
 	id_receiver BIGINT NOT NULL,
 	id_chat BIGINT NOT NULL,
-	status VARCHAR(80) NOT NULL,
+	status VARCHAR(50) NOT NULL,
 	timestamp BIGINT NOT NULL,
 	created_at TIMESTAMP(0) NOT NULL,
 	updated_at TIMESTAMP(0) NOT NULL,

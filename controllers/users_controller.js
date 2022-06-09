@@ -66,7 +66,7 @@ module.exports = {
             console.log('Usuario registrado', user)
             return res.status(201).json({
                 success: true,
-                message: 'Cuenta creada exitosamente... Ya puedes iniciar sesión.',
+                message: 'Cuenta creada exitosamente.',
                 data: user
             })
         } catch (error) {
@@ -164,7 +164,9 @@ module.exports = {
                     email: myUser.email,
                     phone: myUser.phone,
                     image: myUser.image,
-                    session_token: `JWT ${token}`
+                    session_token: `JWT ${token}`,
+                    updated_at: myUser.updated_at,
+                    created_at: myUser.created_at
                 }
                 return res.status(201).json({
                     success: true,

@@ -21,7 +21,6 @@ module.exports = (io) => {
             await User.updateOnlineByUser(data.id_user, true)
             await User.updateIdSocket(data.id_user, socket.id)
             console.log('USER CONNECTED TO CHAT...', socket.id)
-
         })
         socket.on('disconnect', async function (data) {
             console.log('DISCONNECTED', socket.id)

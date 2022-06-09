@@ -26,7 +26,7 @@ const upload = multer({ storage: multer.memoryStorage() })
 users(app, upload)
 chats(app)
 messages(app, upload)
-server.listen(3000, '192.168.0.50' || 'localhost', function () { console.log(`SERVER READY IN PORT ${port}`) })
+server.listen(port, '192.168.0.50' || 'localhost', function () { console.log(`SERVER READY IN PORT ${port}`) })
 app.use((err, req, res, next) => {
     console.log(err)
     res.status(err.status || 500).send(err.stack)
